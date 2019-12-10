@@ -1,0 +1,9 @@
+#! /bin/bash
+
+#PBS -q arm
+#PBS -l select=1
+#PBS -l walltime=00:20:00
+#PBS -N hjob
+#PBS -o job.out
+
+./dgemm_test.exe
