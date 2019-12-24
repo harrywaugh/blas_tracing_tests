@@ -9,7 +9,7 @@ cd /home/br-hwaugh/Repos/blas_tracing_tests
 
 source env.sh
 
-export LD_PRELOAD=/home/br-hwaugh/BLAS-Analytics/edited-perf-libs-tools/lib/libarmpl-summarylog.so
+export LD_PRELOAD=/home/br-hwaugh/perf-libs-tools/lib/libarmpl-summarylog.so
 
 
-./dgemm_test.exe
+time ./dgemm_test.exe

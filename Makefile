@@ -5,3 +5,6 @@ CFLAGS=-std=c++11
 
 all:
 	${CC} ${LLIBS} ${CFLAGS} dgemm_test.cpp -o dgemm_test.exe
+
+clean:
+	rm -rf *.exe

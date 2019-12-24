@@ -10,8 +10,8 @@ int main ( int argc, char* argv[] ) {
 
     // Create arrays that represent the matrices A,B,C
     const int m = 20;
-    const int n = 30;
-    const int k = 10;
+    const int n = 150;
+    const int k = 5;
     double*  A = new double[m*k];
     double*  B = new double[n*k];
     double*  C = new double[m*n];
