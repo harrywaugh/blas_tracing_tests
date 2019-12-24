@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -q arm
+#PBS -l walltime=01:00:00
+#PBS -l select=1
+#PBS -joe
+
+cd /home/br-hwaugh/Repos/blas_tracing_tests
+
+
+source env.sh
+
+export LD_PRELOAD=/home/br-hwaugh/perf-libs-tools/lib/libarmpl-summarylog.so
+
+
+time aprun -n 2 ./dgemm_test_mpi.exe
