@@ -20,7 +20,7 @@ int main ( int argc, char* argv[]) {
     int k_dims[3] = {5, 55, 105};
 
     // Fill A and B with random numbers
-    for(uint i =0; i <m*k; i++){
+    for(uint i = 0; i <m*k; i++){
         A[i] = doubleDist(rnd);
     }
 

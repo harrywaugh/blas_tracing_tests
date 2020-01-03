@@ -26,8 +26,9 @@ int main ( int argc, char* argv[]) {
     uint k = 105;
     uint m = 101;
 
-    int m_dims[3] = {1, 51, 55};
-    int k_dims[3] = {5, 55, 105};
+    double*  A = new double[m*k];
+    double*  B = new double[n*k];
+    double*  C = new double[m*n];
 
         // Fill A and B with random numbers
     for(uint i =0; i <m*k; i++){
@@ -38,13 +39,13 @@ int main ( int argc, char* argv[]) {
         B[i] = doubleDist(rnd);
     }
  
-    for (k = 0; k < 3; k++)  {
-        for (m = 0; m < 3; m++)  {
+    for (k = 5; k <= 106; k += 50)  {
+        for (m = 1; m <= 101; m += 50)  {
     
 
             for (int i=0; i < 1000; i++)  {
-                // Calculate A * B = C
-                cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, m_dims[m], n, k_dims[k], 1.0, A, k_dims[k], B, n, 0.0, C, n);
+                // Calculate A*B=C
+                cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, m, n, k, 1.0, A, k, B, n, 0.0, C, n);
             }
 
         }
