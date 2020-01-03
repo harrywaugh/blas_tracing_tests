@@ -29,13 +29,15 @@ int main ( int argc, char* argv[]) {
     }
     
     #pragma omp parallel for schedule(static, 1)
-    for (k = 0; k < 3; k++)  {
-        for (m = 0; m < 3; m++)  {
-            for (int i=0; i < 1000; i++)  {
-                // Calculate A * B = C
-                cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, m_dims[m], n, k_dims[k], 1.0, A, k_dims[k], B, n, 0.0, C, n);
-            }
+    for (int work_threads = 0; work_threads < 128; work_threads++)  {
+        for (k = 0; k < 3; k++)  {
+            for (m = 0; m < 3; m++)  {
+                for (int i=0; i < 1000; i++)  {
+                    // Calculate A * B = C
+                    cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, m_dims[m], n, k_dims[k], 1.0, A, k_dims[k], B, n, 0.0, C, n);
+                }
 
+            }
         }
     }
 
