@@ -10,4 +10,4 @@ mpi-all:
 	${CC} ${LLIBS} ${CFLAGS} dgemm_test_mpi.cpp -o dgemm_test_mpi.exe
 
 clean:
-	rm -rf *.exe
+	rm -rf *.exe *.job.*
