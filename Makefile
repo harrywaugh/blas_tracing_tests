@@ -6,8 +6,11 @@ CFLAGS=-std=c++11
 all:
 	${CC} ${LLIBS} ${CFLAGS} dgemm_test.cpp -o dgemm_test.exe
 
-mpi-all:
+mpi:
 	${CC} ${LLIBS} ${CFLAGS} dgemm_test_mpi.cpp -o dgemm_test_mpi.exe
+
+openmp:
+	${CC} ${LLIBS} ${CFLAGS} -fopenmp dgemm_test_mpi.cpp -o dgemm_test_mpi.exe
 
 clean:
 	rm -rf *.exe *.job.*
