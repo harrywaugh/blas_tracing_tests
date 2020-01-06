@@ -1,8 +1,19 @@
 #include <random>
 //#include <armpl.h>
 #include <cblas.h>
+#include <sys/time.h>
+
+// Get the current time in seconds since the Epoch
+double wtime(void) {
+  struct timeval tv;
+  gettimeofday(&tv, NULL);
+  return tv.tv_sec + tv.tv_usec*1e-6;
+}
 
 int main ( int argc, char* argv[] ) {
+    
+    double main_tic = wtime();
+
 
     // Random numbers
     std::mt19937_64 rnd;
@@ -34,6 +45,11 @@ int main ( int argc, char* argv[] ) {
     delete[] A;
     delete[] B;
     delete[] C;
+
+        
+    double main_toc = wtime();
+    main_toc -= main_tic;
+    printf("Main function time: %.3f\n", main_toc);
 
     return 0;
 }
