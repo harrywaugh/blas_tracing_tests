@@ -9,4 +9,5 @@ cd /home/br-hwaugh/Repos/blas_tracing_tests
 source env.sh
 export LD_PRELOAD=/home/br-hwaugh/perf-libs-tools/lib/libarmpl-summarylog.so
 
+export ARMPL_SUMMARY_FILEROOT=/home/br-hwaugh/craytest-scale-1-log
 time aprun -n 128 -N 64 ./dgemm_test_mpi.exe
