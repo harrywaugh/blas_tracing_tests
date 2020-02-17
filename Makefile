@@ -9,6 +9,9 @@ CFLAGS= -h dynamic
 serial:
 	${CC} ${LLIBS} ${CFLAGS} dgemm_test.cpp -o dgemm_test.exe
 
+intel:
+	icc -std=c++11 -g -mkl dgemm_test.cpp -o dgemm_test.exe
+
 mpi:
 	${CC} ${LLIBS} ${CFLAGS} dgemm_test_mpi.cpp -o dgemm_test_mpi.exe
 
