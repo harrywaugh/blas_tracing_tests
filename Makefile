@@ -10,6 +10,9 @@ CRAY_LIBS="-L/opt/cray/pe/libsci/18.12.1/CRAY/8.6/aarch64/lib -lsci_cray -h dyna
 serial:
 	${CC} ${ARM_LIBS}  src/dgemm_test.cpp -o dgemm_test.exe
 
+intel:
+	icc -std=c++11 -g -mkl dgemm_test.cpp -o dgemm_test.exe
+
 mpi:
 	${CC} ${ARM_LIBS} src/dgemm_test_mpi.cpp -o dgemm_test.exe
 
