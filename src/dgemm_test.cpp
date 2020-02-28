@@ -1,6 +1,6 @@
 #include <random>
-//#include <armpl.h>
-#include <cblas.h>
+#include <armpl.h>
+//#include <cblas.h>
 #include <sys/time.h>
 
 // Get the current time in seconds since the Epoch
@@ -36,7 +36,7 @@ int main ( int argc, char* argv[] ) {
         B[i] = doubleDist(rnd);
     }
 
-    for (int i=0; i < 1000; i++)  {
+    for (int i=0; i < 50000; i++)  {
         // Calculate A*B=C
         cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, m, n, k, 1.0, A, k, B, n, 0.0, C, n);
     }    

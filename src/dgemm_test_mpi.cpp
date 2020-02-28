@@ -1,6 +1,6 @@
 #include <random>
-//#include <armpl.h>
-#include <cblas.h>
+#include <armpl.h>
+//#include <cblas.h>
 #include "mpi.h"
 
 int main ( int argc, char* argv[]) {

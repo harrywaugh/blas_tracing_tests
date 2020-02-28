@@ -1,25 +1,26 @@
 CC=CC
 FC=ftn
 
-LIBS="-L/opt/allinea/19.2.0.0/opt/arm/armpl-19.2.0_ThunderX2CN99_SUSE-12_gcc_8.2.0_aarch64-linux/lib -larmpl"
-FLIBS="-L/opt/allinea/19.2.0.0/opt/arm/armpl-19.2.0_ThunderX2CN99_SUSE-12_gcc_8.2.0_aarch64-linux/lib -larmpl"
-CFLAGS= -h dynamic
-#CFLAGS=-std=c++11
+MPICC=mpicc
+
+
+ARM_LIBS=-L${ARMPL_LIBRARIES} -larmpl -lamath 
+CRAY_LIBS="-L/opt/cray/pe/libsci/18.12.1/CRAY/8.6/aarch64/lib -lsci_cray -h dynamic "
 
 serial:
-	${CC} ${LLIBS} ${CFLAGS} dgemm_test.cpp -o dgemm_test.exe
+	${CC} ${ARM_LIBS}  src/dgemm_test.cpp -o dgemm_test.exe
 
 mpi:
-	${CC} ${LLIBS} ${CFLAGS} dgemm_test_mpi.cpp -o dgemm_test_mpi.exe
+	${CC} ${ARM_LIBS} src/dgemm_test_mpi.cpp -o dgemm_test.exe
 
 openmp:
-	${CC} ${LLIBS} ${CFLAGS} dgemm_test_openmp.cpp -o dgemm_test_openmp.exe
+	${CC} ${ARM_LIBS} ${CFLAGS} src/dgemm_test_openmp.cpp -o dgemm_test.exe
 
 openmp-dpotrf:
-	${CC} ${LLIBS} ${CFLAGS} -fopenmp -g dpotrf_test_openmp.cpp -o dpotrf_test_openmp.exe
+	${CC} ${ARM_LIBS} ${CFLAGS} -fopenmp -g src/dpotrf_test_openmp.cpp -o dpotrf_test.exe
 
 fort-blas:
-	${FC} ${LLIBS} fortran_blas1.f -o fortran_blas.exe
+	${FC} ${ARM_LIBS} src/fortran_blas1.f90 -o fortran_blas.exe
 
 clean:
 	rm -rf *.exe *.job.*
