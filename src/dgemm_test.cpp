@@ -1,10 +1,5 @@
 #include <random>
-<<<<<<< HEAD:src/dgemm_test.cpp
-#include <armpl.h>
-//#include <cblas.h>
-=======
 #include <mkl.h>
->>>>>>> 11ad13311730a4384d26845f9ab6f85301f23b06:dgemm_test.cpp
 #include <sys/time.h>
 
 // Get the current time in seconds since the Epoch
